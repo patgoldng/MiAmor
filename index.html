@@ -969,41 +969,6 @@
                     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
                 });
             }
-
-            // One-time subtle auto-scroll on page load
-            if (!sessionStorage.getItem('hasAutoScrolled')) {
-                const autoScroll = (targetY, duration) => {
-                    const startY = window.scrollY;
-                    const distance = targetY - startY;
-                    let startTime = null;
-
-                    function animation(currentTime) {
-                        if (startTime === null) startTime = currentTime;
-                        const timeElapsed = currentTime - startTime;
-                        const run = ease(timeElapsed, startY, distance, duration);
-                        window.scrollTo(0, run);
-                        if (timeElapsed < duration) requestAnimationFrame(animation);
-                    }
-
-                    // easeInOutQuad easing function
-                    function ease(t, b, c, d) {
-                        t /= d / 2;
-                        if (t < 1) return c / 2 * t * t + b;
-                        t--;
-                        return -c / 2 * (t * (t - 2) - 1) + b;
-                    }
-
-                    requestAnimationFrame(animation);
-                };
-
-                setTimeout(() => {
-                    autoScroll(100, 800); // Scroll down 100px
-                    setTimeout(() => {
-                        autoScroll(0, 600); // Scroll back up
-                    }, 1200); // Wait a bit before scrolling back
-                    sessionStorage.setItem('hasAutoScrolled', 'true');
-                }, 1500); // Initial delay after page load
-            }
         });
     </script>
     
