@@ -972,24 +972,15 @@
             }
         });
     </script>
-    
-    <!-- NEW: Google Ads Conversion Tracking Snippet for Clicks -->
-    <script>
-      function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof(url) != 'undefined') {
-            window.location = url;
-          }
-        };
-        gtag('event', 'conversion', {
-            'send_to': 'AW-17537532799/mXKTOMSTrpYbEP-GxqgB',
-            'value': 1.0,
-            'currency': 'NGN',
-            'event_callback': callback
-        });
-        return false;
-      }
-    </script>
+    <!-- Event snippet for Page view conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17537532799/nRXTCMS7rpYbEP-GxqpB',
+      'value': 1.0,
+      'currency': 'NGN'
+  });
+</script>
 </body>
 
 </html>
+
